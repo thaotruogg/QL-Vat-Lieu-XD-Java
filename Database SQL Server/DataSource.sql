@@ -12,6 +12,8 @@ IF NOT EXISTS (
 )
 CREATE DATABASE DatabaseVLXD
 
+GO
+
 use DatabaseVLXD
 
 GO
@@ -196,7 +198,7 @@ BEGIN
 END
 GO	
 --Show table khách hàng
-ALTER PROC SHOW_KhachHang
+CREATE PROC SHOW_KhachHang
 AS
 BEGIN
 	SELECT maKhachHang AS [Mã khách hàng], tenKhachHang AS [Tên khách hàng], diaChi AS [Địa chỉ], soDienThoai AS [Số điện thoại], noDauKi AS [Nợ đầu kì], noHienTai AS [Nợ hiện tại] 
