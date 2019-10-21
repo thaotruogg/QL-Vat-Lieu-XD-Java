@@ -94,7 +94,7 @@ public class Input_Product_GUI extends javax.swing.JFrame {
         });
         btnCloseWindows.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\close_16px.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/close_16px.png"))); // NOI18N
         btnCloseWindows.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
 
         jPanel1.add(btnCloseWindows, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 0, 40, 40));

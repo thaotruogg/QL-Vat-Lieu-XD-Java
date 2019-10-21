@@ -92,7 +92,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\close_window_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/close_window_24px.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -162,7 +162,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\bill_24px.png"/>
+                  <Image iconType="3" name="/GUI/ico/bill_24px.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -236,7 +236,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\product_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/product_24px.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -293,7 +293,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\guest_male_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/guest_male_24px.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -333,7 +333,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\paycheque_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/paycheque_24px.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -728,7 +728,7 @@
                           <Color blue="36" green="43" red="f4" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\delete_24px.png"/>
+                          <Image iconType="3" name="/GUI/ico/delete_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -776,7 +776,7 @@
                           <Color blue="81" green="40" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\add_24px.png"/>
+                          <Image iconType="3" name="/GUI/ico/add_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -871,7 +871,7 @@
                           <Color blue="81" green="40" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\edit_property_24px.png"/>
+                          <Image iconType="3" name="/GUI/ico/edit_property_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -979,7 +979,7 @@
                           <Color blue="36" green="43" red="f4" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\delete_24px.png"/>
+                          <Image iconType="3" name="/GUI/assets/delete_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1001,7 +1001,7 @@
                           <Color blue="81" green="40" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\add_24px.png"/>
+                          <Image iconType="3" name="/GUI/assets/add_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1023,7 +1023,7 @@
                           <Color blue="81" green="40" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\edit_property_24px.png"/>
+                          <Image iconType="3" name="/GUI/assets/edit_property_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1554,7 +1554,7 @@
                   <Color blue="36" green="43" red="f4" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\delete_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/delete_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1590,7 +1590,7 @@
                   <Color blue="81" green="40" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\edit_property_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/edit_property_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1640,7 +1640,7 @@
                   <Color blue="81" green="40" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\add_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/add_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1751,7 +1751,7 @@
                   <Color blue="36" green="43" red="f4" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\delete_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/delete_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1773,7 +1773,7 @@
                   <Color blue="81" green="40" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\edit_property_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/edit_property_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1795,7 +1795,7 @@
                   <Color blue="81" green="40" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\add_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/add_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2190,7 +2190,7 @@
                   <Color blue="36" green="43" red="f4" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\delete_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/delete_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2212,7 +2212,7 @@
                   <Color blue="81" green="40" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\edit_property_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/edit_property_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2234,7 +2234,7 @@
                   <Color blue="81" green="40" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\thaotruogg\NetBeansProjects\Qlnv_GUI\assets\add_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/add_24px.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

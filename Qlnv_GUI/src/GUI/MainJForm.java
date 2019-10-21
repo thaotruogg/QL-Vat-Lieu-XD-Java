@@ -213,7 +213,7 @@ public class MainJForm extends javax.swing.JFrame {
         });
         btnCloseWindows.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\close_window_24px.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/close_window_24px.png"))); // NOI18N
         btnCloseWindows.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 11, -1, -1));
 
         jPanel1.add(btnCloseWindows, new org.netbeans.lib.awtextra.AbsoluteConstraints(1033, 0, 45, 45));
@@ -245,7 +245,7 @@ public class MainJForm extends javax.swing.JFrame {
         jPanelBill.setLayout(null);
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\bill_24px.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ico/bill_24px.png"))); // NOI18N
         jPanelBill.add(jLabel8);
         jLabel8.setBounds(0, 0, 60, 60);
 
@@ -284,7 +284,7 @@ public class MainJForm extends javax.swing.JFrame {
         jLabel2.setBounds(68, 20, 130, 20);
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\product_24px.png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/product_24px.png"))); // NOI18N
         jPanelProduct.add(jLabel9);
         jLabel9.setBounds(0, 0, 60, 60);
 
@@ -316,7 +316,7 @@ public class MainJForm extends javax.swing.JFrame {
         jLabel4.setBounds(60, 20, 138, 20);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\guest_male_24px.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/guest_male_24px.png"))); // NOI18N
         jPanelGuest.add(jLabel10);
         jLabel10.setBounds(0, 0, 60, 60);
 
@@ -341,7 +341,7 @@ public class MainJForm extends javax.swing.JFrame {
         jPanelPay.setLayout(null);
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\paycheque_24px.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/paycheque_24px.png"))); // NOI18N
         jPanelPay.add(jLabel7);
         jLabel7.setBounds(1, 0, 60, 60);
 
@@ -459,7 +459,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 30, 10));
 
         jButtonBillDelete.setBackground(new java.awt.Color(244, 67, 54));
-        jButtonBillDelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\delete_24px.png")); // NOI18N
+        jButtonBillDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ico/delete_24px.png"))); // NOI18N
         jButtonBillDelete.setBorderPainted(false);
         jButtonBillDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -483,7 +483,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub1.add(btnPay, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 100, 30));
 
         jButtonBillAdd.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillAdd.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\add_24px.png")); // NOI18N
+        jButtonBillAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ico/add_24px.png"))); // NOI18N
         jButtonBillAdd.setBorderPainted(false);
         jButtonBillAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -518,7 +518,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, 30));
 
         jButtonBillEdit4.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillEdit4.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\edit_property_24px.png")); // NOI18N
+        jButtonBillEdit4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ico/edit_property_24px.png"))); // NOI18N
         jButtonBillEdit4.setBorderPainted(false);
         jButtonBillEdit4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillEdit4.addActionListener(new java.awt.event.ActionListener() {
@@ -553,7 +553,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 30, 10));
 
         jButtonSubBillDelete.setBackground(new java.awt.Color(244, 67, 54));
-        jButtonSubBillDelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\delete_24px.png")); // NOI18N
+        jButtonSubBillDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/delete_24px.png"))); // NOI18N
         jButtonSubBillDelete.setBorderPainted(false);
         jButtonSubBillDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSubBillDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -564,7 +564,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub2.add(jButtonSubBillDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 80, -1));
 
         jButtonSubBillAdd.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonSubBillAdd.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\add_24px.png")); // NOI18N
+        jButtonSubBillAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/add_24px.png"))); // NOI18N
         jButtonSubBillAdd.setBorderPainted(false);
         jButtonSubBillAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSubBillAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -575,7 +575,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub2.add(jButtonSubBillAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 80, -1));
 
         jButtonSubBillEdit.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonSubBillEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\edit_property_24px.png")); // NOI18N
+        jButtonSubBillEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/edit_property_24px.png"))); // NOI18N
         jButtonSubBillEdit.setBorderPainted(false);
         jButtonSubBillEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSubBillEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -800,7 +800,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpProduct.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
 
         jButtonBillDelete1.setBackground(new java.awt.Color(244, 67, 54));
-        jButtonBillDelete1.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\delete_24px.png")); // NOI18N
+        jButtonBillDelete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/delete_24px.png"))); // NOI18N
         jButtonBillDelete1.setBorderPainted(false);
         jButtonBillDelete1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillDelete1.addActionListener(new java.awt.event.ActionListener() {
@@ -816,7 +816,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpProduct.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 80, -1));
 
         jButtonBillEdit1.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillEdit1.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\edit_property_24px.png")); // NOI18N
+        jButtonBillEdit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/edit_property_24px.png"))); // NOI18N
         jButtonBillEdit1.setBorderPainted(false);
         jButtonBillEdit1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillEdit1.addActionListener(new java.awt.event.ActionListener() {
@@ -837,7 +837,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpProduct.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, -1));
 
         jButtonBillAdd1.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillAdd1.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\add_24px.png")); // NOI18N
+        jButtonBillAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/add_24px.png"))); // NOI18N
         jButtonBillAdd1.setBorderPainted(false);
         jButtonBillAdd1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillAdd1.addActionListener(new java.awt.event.ActionListener() {
@@ -875,7 +875,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpGuest.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 127, 500, 480));
 
         jButtonBillDelete2.setBackground(new java.awt.Color(244, 67, 54));
-        jButtonBillDelete2.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\delete_24px.png")); // NOI18N
+        jButtonBillDelete2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/delete_24px.png"))); // NOI18N
         jButtonBillDelete2.setBorderPainted(false);
         jButtonBillDelete2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillDelete2.addActionListener(new java.awt.event.ActionListener() {
@@ -886,7 +886,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpGuest.add(jButtonBillDelete2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 80, -1));
 
         jButtonBillEdit2.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillEdit2.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\edit_property_24px.png")); // NOI18N
+        jButtonBillEdit2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/edit_property_24px.png"))); // NOI18N
         jButtonBillEdit2.setBorderPainted(false);
         jButtonBillEdit2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillEdit2.addActionListener(new java.awt.event.ActionListener() {
@@ -897,7 +897,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpGuest.add(jButtonBillEdit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 80, -1));
 
         jButtonBillAdd2.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillAdd2.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\add_24px.png")); // NOI18N
+        jButtonBillAdd2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/add_24px.png"))); // NOI18N
         jButtonBillAdd2.setBorderPainted(false);
         jButtonBillAdd2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillAdd2.addActionListener(new java.awt.event.ActionListener() {
@@ -1031,7 +1031,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpPay.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 127, 830, 480));
 
         jButtonBillDelete3.setBackground(new java.awt.Color(244, 67, 54));
-        jButtonBillDelete3.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\delete_24px.png")); // NOI18N
+        jButtonBillDelete3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/delete_24px.png"))); // NOI18N
         jButtonBillDelete3.setBorderPainted(false);
         jButtonBillDelete3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillDelete3.addActionListener(new java.awt.event.ActionListener() {
@@ -1042,7 +1042,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpPay.add(jButtonBillDelete3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 80, -1));
 
         jButtonBillEdit3.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillEdit3.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\edit_property_24px.png")); // NOI18N
+        jButtonBillEdit3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/edit_property_24px.png"))); // NOI18N
         jButtonBillEdit3.setBorderPainted(false);
         jButtonBillEdit3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillEdit3.addActionListener(new java.awt.event.ActionListener() {
@@ -1053,7 +1053,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpPay.add(jButtonBillEdit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 80, -1));
 
         jButtonBillAdd3.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillAdd3.setIcon(new javax.swing.ImageIcon("C:\\Users\\thaotruogg\\NetBeansProjects\\Qlnv_GUI\\assets\\add_24px.png")); // NOI18N
+        jButtonBillAdd3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/add_24px.png"))); // NOI18N
         jButtonBillAdd3.setBorderPainted(false);
         jButtonBillAdd3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillAdd3.addActionListener(new java.awt.event.ActionListener() {
