@@ -162,7 +162,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/GUI/ico/bill_24px.png"/>
+                  <Image iconType="3" name="/GUI/assets/paycheque_24px.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -521,25 +521,10 @@
                         <Component class="javax.swing.JTable" name="jtbBill">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="3" rowCount="4">
-                                <Column editable="true" title="M&#xe3; h&#xf3;a &#x111;&#x1a1;n" type="java.lang.Object">
-                                  <Data value="12423"/>
-                                  <Data value="null"/>
-                                  <Data value="null"/>
-                                  <Data value="null"/>
-                                </Column>
-                                <Column editable="true" title="T&#xea;n kh&#xe1;ch h&#xe0;ng" type="java.lang.Object">
-                                  <Data value="Dle sei"/>
-                                  <Data value="null"/>
-                                  <Data value="null"/>
-                                  <Data value="null"/>
-                                </Column>
-                                <Column editable="true" title="Ng&#xe0;y l&#x1ead;p" type="java.lang.Object">
-                                  <Data value="24/02/2019"/>
-                                  <Data value="null"/>
-                                  <Data value="null"/>
-                                  <Data value="null"/>
-                                </Column>
+                              <Table columnCount="3" rowCount="0">
+                                <Column editable="true" title="M&#xe3; h&#xf3;a &#x111;&#x1a1;n" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xea;n kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
+                                <Column editable="true" title="Ng&#xe0;y l&#x1ead;p" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -566,6 +551,9 @@
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtbBillMouseClicked"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -632,7 +620,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel39">
+                        <Component class="javax.swing.JLabel" name="jLabelNgayHD">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Nunito" size="12" style="0"/>
@@ -645,7 +633,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel40">
+                        <Component class="javax.swing.JLabel" name="jLabelMaHD">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Nunito" size="12" style="0"/>
@@ -658,7 +646,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel41">
+                        <Component class="javax.swing.JLabel" name="jLabelMaKH">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Nunito" size="12" style="0"/>
@@ -671,7 +659,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel42">
+                        <Component class="javax.swing.JLabel" name="jLabelTenKH">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Nunito" size="12" style="0"/>
@@ -728,7 +716,7 @@
                           <Color blue="36" green="43" red="f4" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/GUI/ico/delete_24px.png"/>
+                          <Image iconType="3" name="/GUI/assets/delete_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -776,7 +764,7 @@
                           <Color blue="81" green="40" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/GUI/ico/add_24px.png"/>
+                          <Image iconType="3" name="/GUI/assets/add_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -871,7 +859,7 @@
                           <Color blue="81" green="40" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/GUI/ico/edit_property_24px.png"/>
+                          <Image iconType="3" name="/GUI/assets/edit_property_24px.png"/>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -917,10 +905,10 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jpSubBill">
+                        <Component class="javax.swing.JTable" name="jtbSubBill">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="4">
+                              <Table columnCount="4" rowCount="0">
                                 <Column editable="true" title=" S&#x1ed1; h&#xf3;a &#x111;&#x1a1;n" type="java.lang.Object"/>
                                 <Column editable="true" title="T&#xea;n s&#x1ea3;n ph&#x1ea9;m" type="java.lang.Object"/>
                                 <Column editable="true" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.Object"/>
@@ -1706,7 +1694,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable2">
+                <Component class="javax.swing.JTable" name="jtbGuest">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="4">
@@ -1742,6 +1730,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtbGuestMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1890,7 +1881,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jlName_category1">
+                <Component class="javax.swing.JLabel" name="jlbTenKH">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Nunito" size="12" style="0"/>
@@ -1916,7 +1907,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jlName_product1">
+                <Component class="javax.swing.JLabel" name="jlbMaKH">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Nunito" size="12" style="0"/>
@@ -1942,7 +1933,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel63">
+                <Component class="javax.swing.JLabel" name="jlbNoDauKi">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Nunito" size="12" style="0"/>
@@ -1968,7 +1959,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jlName_provider1">
+                <Component class="javax.swing.JLabel" name="jlbDiaChi">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Nunito" size="12" style="0"/>
@@ -2007,7 +1998,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel69">
+                <Component class="javax.swing.JLabel" name="jlbNoCuoiKi">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Nunito" size="12" style="0"/>

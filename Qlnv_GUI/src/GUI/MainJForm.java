@@ -5,22 +5,38 @@
  */
 package GUI;
 
+import DLL.UpdateClass;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
-import qlnv_gui.ConnectionDatabase;
+import DAL.ConnectionDatabase;
 
 /**
  *
  * @author thaotruogg
  */
-public class MainJForm extends javax.swing.JFrame {
-
+public final class MainJForm extends javax.swing.JFrame {
+    Connection conn = ConnectionDatabase.getConnection();
+    String queryBill = "EXEC dbo.Show_SoHoaDon";
+    String querySubBill = "EXEC dbo.Show_CTHD";
+    String queryGuest = "EXEC dbo.SHOW_KhachHang";
     /**
      * Creates new form MainJForm
      */
     public MainJForm() {
         initComponents();
         this.setLocationRelativeTo(null);
+        UpdateClass.LoadList(queryBill, jtbBill);
+        UpdateClass.LoadList(querySubBill, jtbSubBill);
+        showKhachHang();
+    }
+    
+    public void showKhachHang(){
+        UpdateClass.LoadList(queryGuest, jtbGuest);
     }
 
     /**
@@ -67,10 +83,10 @@ public class MainJForm extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
+        jLabelNgayHD = new javax.swing.JLabel();
+        jLabelMaHD = new javax.swing.JLabel();
+        jLabelMaKH = new javax.swing.JLabel();
+        jLabelTenKH = new javax.swing.JLabel();
         jtxtSearchBill = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jButtonBillDelete = new javax.swing.JButton();
@@ -84,7 +100,7 @@ public class MainJForm extends javax.swing.JFrame {
         jButtonBillEdit4 = new javax.swing.JButton();
         jpBillSub2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jpSubBill = new javax.swing.JTable();
+        jtbSubBill = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jButtonSubBillDelete = new javax.swing.JButton();
         jButtonSubBillAdd = new javax.swing.JButton();
@@ -130,7 +146,7 @@ public class MainJForm extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jtbGuest = new javax.swing.JTable();
         jButtonBillDelete2 = new javax.swing.JButton();
         jButtonBillEdit2 = new javax.swing.JButton();
         jButtonBillAdd2 = new javax.swing.JButton();
@@ -140,16 +156,16 @@ public class MainJForm extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel60 = new javax.swing.JLabel();
-        jlName_category1 = new javax.swing.JLabel();
+        jlbTenKH = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
-        jlName_product1 = new javax.swing.JLabel();
+        jlbMaKH = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
+        jlbNoDauKi = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
-        jlName_provider1 = new javax.swing.JLabel();
+        jlbDiaChi = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
+        jlbNoCuoiKi = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
         jtxtSearchGuest = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
@@ -245,7 +261,7 @@ public class MainJForm extends javax.swing.JFrame {
         jPanelBill.setLayout(null);
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ico/bill_24px.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/paycheque_24px.png"))); // NOI18N
         jPanelBill.add(jLabel8);
         jLabel8.setBounds(0, 0, 60, 60);
 
@@ -394,16 +410,18 @@ public class MainJForm extends javax.swing.JFrame {
 
         jtbBill.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"12423", "Dle sei", "24/02/2019"},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Mã hóa đơn", "Tên khách hàng", "Ngày lập"
             }
         ));
         jtbBill.setRowHeight(24);
+        jtbBill.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtbBillMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtbBill);
 
         jpBillSub1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 410));
@@ -426,21 +444,21 @@ public class MainJForm extends javax.swing.JFrame {
         jLabel38.setText("Mã hóa đơn");
         jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel39.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jLabel39.setText("23/02/2019");
-        jPanel6.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        jLabelNgayHD.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jLabelNgayHD.setText("23/02/2019");
+        jPanel6.add(jLabelNgayHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        jLabel40.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jLabel40.setText("show-here");
-        jPanel6.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jLabelMaHD.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jLabelMaHD.setText("show-here");
+        jPanel6.add(jLabelMaHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
-        jLabel41.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jLabel41.setText("show-here");
-        jPanel6.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        jLabelMaKH.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jLabelMaKH.setText("show-here");
+        jPanel6.add(jLabelMaKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        jLabel42.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jLabel42.setText("show-here");
-        jPanel6.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        jLabelTenKH.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jLabelTenKH.setText("show-here");
+        jPanel6.add(jLabelTenKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jpBillSub1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 310, 280));
 
@@ -459,7 +477,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 30, 10));
 
         jButtonBillDelete.setBackground(new java.awt.Color(244, 67, 54));
-        jButtonBillDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ico/delete_24px.png"))); // NOI18N
+        jButtonBillDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/delete_24px.png"))); // NOI18N
         jButtonBillDelete.setBorderPainted(false);
         jButtonBillDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -483,7 +501,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub1.add(btnPay, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 100, 30));
 
         jButtonBillAdd.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ico/add_24px.png"))); // NOI18N
+        jButtonBillAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/add_24px.png"))); // NOI18N
         jButtonBillAdd.setBorderPainted(false);
         jButtonBillAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -518,7 +536,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, 30));
 
         jButtonBillEdit4.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillEdit4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ico/edit_property_24px.png"))); // NOI18N
+        jButtonBillEdit4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/edit_property_24px.png"))); // NOI18N
         jButtonBillEdit4.setBorderPainted(false);
         jButtonBillEdit4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBillEdit4.addActionListener(new java.awt.event.ActionListener() {
@@ -533,19 +551,16 @@ public class MainJForm extends javax.swing.JFrame {
         jpBillSub2.setBackground(new java.awt.Color(232, 245, 233));
         jpBillSub2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpSubBill.setModel(new javax.swing.table.DefaultTableModel(
+        jtbSubBill.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 " Số hóa đơn", "Tên sản phẩm", "Số lượng", "Đơn giá"
             }
         ));
-        jpSubBill.setRowHeight(24);
-        jScrollPane3.setViewportView(jpSubBill);
+        jtbSubBill.setRowHeight(24);
+        jScrollPane3.setViewportView(jtbSubBill);
 
         jpBillSub2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 820, 410));
 
@@ -857,7 +872,7 @@ public class MainJForm extends javax.swing.JFrame {
         jpGuest.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
         jpGuest.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 830, 10));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jtbGuest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -868,9 +883,14 @@ public class MainJForm extends javax.swing.JFrame {
                 "Mã khách hàng", "Tên khách hàng", "Số điện thoại"
             }
         ));
-        jTable2.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable2.setRowHeight(24);
-        jScrollPane4.setViewportView(jTable2);
+        jtbGuest.setGridColor(new java.awt.Color(255, 255, 255));
+        jtbGuest.setRowHeight(24);
+        jtbGuest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtbGuestMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jtbGuest);
 
         jpGuest.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 127, 500, 480));
 
@@ -932,33 +952,33 @@ public class MainJForm extends javax.swing.JFrame {
         jLabel60.setText("Tên khách hàng");
         jPanel5.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jlName_category1.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jlName_category1.setText("name_product");
-        jPanel5.add(jlName_category1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jlbTenKH.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jlbTenKH.setText("name_product");
+        jPanel5.add(jlbTenKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel61.setFont(new java.awt.Font("Nunito ExtraBold", 0, 14)); // NOI18N
         jLabel61.setText("Mã khách hàng");
         jPanel5.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jlName_product1.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jlName_product1.setText("name_product");
-        jPanel5.add(jlName_product1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        jlbMaKH.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jlbMaKH.setText("name_product");
+        jPanel5.add(jlbMaKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jLabel62.setFont(new java.awt.Font("Nunito ExtraBold", 0, 12)); // NOI18N
         jLabel62.setText("VNĐ");
         jPanel5.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
 
-        jLabel63.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jLabel63.setText("1.000.000.000");
-        jPanel5.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        jlbNoDauKi.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jlbNoDauKi.setText("1.000.000.000");
+        jPanel5.add(jlbNoDauKi, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         jLabel66.setFont(new java.awt.Font("Nunito ExtraBold", 0, 14)); // NOI18N
         jLabel66.setText("Địa chỉ");
         jPanel5.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
-        jlName_provider1.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jlName_provider1.setText("name_product");
-        jPanel5.add(jlName_provider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        jlbDiaChi.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jlbDiaChi.setText("name_product");
+        jPanel5.add(jlbDiaChi, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         jLabel67.setFont(new java.awt.Font("Nunito ExtraBold", 0, 14)); // NOI18N
         jLabel67.setText("Nợ đầu kì");
@@ -968,9 +988,9 @@ public class MainJForm extends javax.swing.JFrame {
         jLabel68.setText("Nợ cuối kì");
         jPanel5.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
-        jLabel69.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jLabel69.setText("1.000.000.000");
-        jPanel5.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        jlbNoCuoiKi.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jlbNoCuoiKi.setText("1.000.000.000");
+        jPanel5.add(jlbNoCuoiKi, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         jLabel70.setFont(new java.awt.Font("Nunito ExtraBold", 0, 12)); // NOI18N
         jLabel70.setText("VNĐ");
@@ -1138,6 +1158,11 @@ public class MainJForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void btnCloseWindowsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseWindowsMouseClicked
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_btnCloseWindowsMouseClicked
 
@@ -1244,23 +1269,11 @@ public class MainJForm extends javax.swing.JFrame {
     }//GEN-LAST:event_mouseBillClick
 
     private void mouseBillEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseBillEntered
-//        if(evt.getSource() == btnBillSub1){
-//            setColorDeep(btnBillSub1);
-//        }
 //        
-//        if(evt.getSource() == btnBillSub2){
-//            setColorDeep(btnBillSub2);
-//        }
     }//GEN-LAST:event_mouseBillEntered
 
     private void mouseBillExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseBillExited
-//        if(evt.getSource() == btnBillSub1){
-//            resetColor(btnBillSub1); 
-//        }
 //        
-//        if(evt.getSource() == btnBillSub2){
-//            resetColor(btnBillSub2);
-//        }
     }//GEN-LAST:event_mouseBillExited
 
     private void mouseBillPressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseBillPressed
@@ -1386,6 +1399,43 @@ public class MainJForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBillEdit4ActionPerformed
 
+    private void jtbBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbBillMouseClicked
+        try {
+            int row = this.jtbBill.getSelectedRow();
+            String idRow = (this.jtbBill.getModel().getValueAt(row, 0)).toString();
+            String query = "EXEC dbo.Show_SoHoaDon2 @maHD = '"+idRow+"'";
+            ResultSet resultSet = UpdateClass.ShowText(query);
+            if(resultSet.next()){
+                maHDTemp = resultSet.getString("soHoaDon");
+                jLabelMaHD.setText(resultSet.getString("soHoaDon"));
+                jLabelMaKH.setText(resultSet.getString("maKhachHang"));
+                jLabelTenKH.setText(resultSet.getString("tenKhachHang"));
+                jLabelNgayHD.setText(resultSet.getString("ngayHoaDon"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jtbBillMouseClicked
+
+    private void jtbGuestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbGuestMouseClicked
+        try {
+            int row = this.jtbGuest.getSelectedRow();
+            String idRow = (this.jtbGuest.getModel().getValueAt(row, 0)).toString();
+            String query = "SELECT * FROM dbo.KHACHHANG WHERE maKhachHang = '"+idRow+"'";
+            ResultSet resultSet = UpdateClass.ShowText(query);
+            if(resultSet.next()){
+                maHDTemp = resultSet.getString("maKhachHang");
+                jlbMaKH.setText(resultSet.getString("maKhachHang"));
+                jlbTenKH.setText(resultSet.getString("tenKhachHang"));
+                jlbDiaChi.setText(resultSet.getString("diaChi"));
+                jlbNoDauKi.setText(resultSet.getString("noDauKi"));
+                jlbNoCuoiKi.setText(resultSet.getString("noHienTai"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jtbGuestMouseClicked
+
     void setColor(JPanel jpanel){
         jpanel.setBackground(new Color(255,64,129));
     }
@@ -1436,6 +1486,7 @@ public class MainJForm extends javax.swing.JFrame {
     }
 
     int xx, xy;
+    String maHDTemp;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnBillSub1;
@@ -1488,11 +1539,7 @@ public class MainJForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
@@ -1514,18 +1561,20 @@ public class MainJForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelMaHD;
+    private javax.swing.JLabel jLabelMaKH;
+    private javax.swing.JLabel jLabelNgayHD;
+    private javax.swing.JLabel jLabelTenKH;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1553,15 +1602,16 @@ public class MainJForm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JLabel jlName_category;
-    private javax.swing.JLabel jlName_category1;
     private javax.swing.JLabel jlName_product;
-    private javax.swing.JLabel jlName_product1;
     private javax.swing.JLabel jlName_provider;
-    private javax.swing.JLabel jlName_provider1;
+    private javax.swing.JLabel jlbDiaChi;
+    private javax.swing.JLabel jlbMaKH;
+    private javax.swing.JLabel jlbNoCuoiKi;
+    private javax.swing.JLabel jlbNoDauKi;
     private javax.swing.JLabel jlbPay;
+    private javax.swing.JLabel jlbTenKH;
     private javax.swing.JPanel jpBill;
     private javax.swing.JPanel jpBillMain;
     private javax.swing.JPanel jpBillSub1;
@@ -1569,8 +1619,9 @@ public class MainJForm extends javax.swing.JFrame {
     private javax.swing.JPanel jpGuest;
     private javax.swing.JPanel jpPay;
     private javax.swing.JPanel jpProduct;
-    private javax.swing.JTable jpSubBill;
     private javax.swing.JTable jtbBill;
+    private javax.swing.JTable jtbGuest;
+    private javax.swing.JTable jtbSubBill;
     private javax.swing.JTextField jtxtSearchBill;
     private javax.swing.JTextField jtxtSearchGuest;
     private javax.swing.JTextField jtxtSearchGuest1;

@@ -165,7 +165,7 @@ INSERT dbo.CHITIETHOADON VALUES ('HD004', 'SP005', 3, 100)
 SELECT * FROM dbo.CHITIETHOADON
 				------------------------------ Có đứa bảo Dev NHẠT VL :)))))) ------------------------------
 
-INSERT dbo.KHACHHANG VALUES ( 'KH001', N'Coca Cola', N'Quận 9 nha', '0387342288', 0, 0)
+INSERT dbo.KHACHHANG(maKhachHang, tenKhachHang, diaChi, soDienThoai, noDauKi, noHienTai) VALUES ( 'KH001', N'Coca Cola', N'Quận 9 nha', '0387342288', 0, 0)
 INSERT dbo.KHACHHANG VALUES ( 'KH002', N'Yasuo', N'Cư dân lang thang', '0123456789', 0, 0)
 INSERT dbo.KHACHHANG VALUES ( 'KH003', N'Ngộ không', N'Hoa quả sơn', '0912341424', 0, 0)
 INSERT dbo.KHACHHANG VALUES ( 'KH004', N'Ant-man', N'Tổ kiến', '0730000000', 0, 5000000)
@@ -177,6 +177,10 @@ GO
 
 --------------------------------------------------------------- Query ---------------------------------------------------------------------
 GO 
+SELECT hd.soHoaDon, kh.tenKhachHang, hd.ngayHoaDon 
+FROM dbo.HOADON hd, dbo.KHACHHANG kh
+WHERE hd.soHoaDon='HD001' AND hd.maKhachHang = kh.maKhachHang
+GO	
 -- query show khach hang
 SELECT maKhachHang AS [Mã khách hàng], tenKhachHang AS [Tên khách hàng], diaChi AS [Địa chỉ], soDienThoai AS [Số điện thoại], noDauKi AS [Nợ đầu kì], noHienTai AS [Nợ hiện tại] FROM dbo.KHACHHANG
 -- query show san pham
@@ -190,32 +194,36 @@ SELECT COUNT(*) FROM dbo.ACCOUNT WHERE usernameAcc = 'admin' AND passwordAcc = '
 					-------------------------------------------------------------- Query Proc -----------------------------------------------------------------
 GO
 --Check điều kiện đăng nhập:
-ALTER PROC USER_Login
+CREATE PROC USER_Login
 @userName varchar(50), @passWord varchar(50)
 AS
 BEGIN
 	SELECT * FROM dbo.ACCOUNT WHERE usernameAcc = @userName AND passwordAcc = @passWord
 END
 GO	
+SELECT * FROM dbo.KHACHHANG WHERE maKhachHang = ''
+go
 --Show table khách hàng
-CREATE PROC SHOW_KhachHang
+ALTER PROC SHOW_KhachHang
 AS
 BEGIN
-	SELECT maKhachHang AS [Mã khách hàng], tenKhachHang AS [Tên khách hàng], diaChi AS [Địa chỉ], soDienThoai AS [Số điện thoại], noDauKi AS [Nợ đầu kì], noHienTai AS [Nợ hiện tại] 
+	SELECT maKhachHang AS [Mã khách hàng], tenKhachHang AS [Tên khách hàng], soDienThoai AS [Số điện thoại]
 	FROM dbo.KHACHHANG
 END
 GO
+EXEC dbo.SHOW_KhachHang
+GO
 --Show table Sản phẩm
-ALTER PROC SHOW_SanPham
+CREATE PROC SHOW_SanPham
 AS
 BEGIN
 	SELECT s.maSanPham AS [Mã sản phẩm], s.tenSanPham AS [Tên sản phẩm], s.nhaSanXuat AS [Nhà sản xuất], l.maLoaiSanPham AS [Mã loại sản phẩm] -- l.tenLoaiSanPham AS [Loại sản phẩm]
-	FROM dbo.LOAISANPHAM AS l, dbo.SANPHAM AS s 
+	FROM dbo.LOAISANPHAM AS l, dbo.SANPHAM AS s
 	WHERE l.maLoaiSanPham = s.maLoaiSanPham
 END
 GO
 --Show table Hóa đơn
-ALTER PROC SHOW_HoaDon
+CREATE PROC SHOW_HoaDon
 AS
 BEGIN
 	SELECT h.soHoaDon [Số hóa đơn], k.maKhachHang [Mã khách hàng], CONVERT(NVARCHAR(100), h.ngayHoaDon, 105) [Ngày hóa đơn], ct.maHoaDon [Mã hóa đơn], s.maSanPham [Mã sản phẩm], ct.soLuong [Số lượng], ct.donGia [Đơn giá] 
@@ -225,14 +233,26 @@ BEGIN
 	ORDER BY ct.maHoaDon
 END
 GO
+EXEC dbo.SHOW_HoaDon
+GO
 --Show table Số Hóa Đơn
-ALTER PROC Show_SoHoaDon
+CREATE PROC Show_SoHoaDon
 AS
 BEGIN
-    SELECT soHoaDon [Số hóa đơn], maKhachHang [Mã khách hàng], ngayHoaDon [Ngày hóa đơn] FROM dbo.HOADON
+    SELECT soHoaDon [Số hóa đơn], maKhachHang [Mã khách hàng], ngayHoaDon [Ngày hóa đơn] 
+	FROM dbo.HOADON
 END
 GO
-EXEC dbo.Show_SoHoaDon
+CREATE PROC Show_SoHoaDon2 (@maHD VARCHAR(10))
+AS
+BEGIN
+    SELECT hd.soHoaDon, hd.maKhachHang, kh.tenKhachHang, hd.ngayHoaDon 
+	FROM dbo.HOADON hd, dbo.KHACHHANG kh
+	WHERE hd.soHoaDon=@maHD AND hd.maKhachHang = kh.maKhachHang
+END
+GO
+EXEC dbo.Show_SoHoaDon2 @maHD = '' -- varchar(10)
+
 GO
 --Show table Mã Chi Tiết Hóa Đơn
 CREATE PROC Show_CTHD
@@ -244,7 +264,7 @@ GO
 EXEC dbo.Show_CTHD
 GO 
 --Show table Loại sản phẩm
-ALTER PROC SHOW_LoaiSanPham
+CREATE PROC SHOW_LoaiSanPham
 AS
 BEGIN
 	SELECT maLoaiSanPham AS [Mã loại sản phẩm], tenLoaiSanPham AS [Tên loại sản phẩm] 
@@ -259,7 +279,7 @@ GO
 
 --KHÁCH HÀNG
 	-- Thêm Khách Hàng
-	ALTER PROC USP_InsertKhachHang (@maKhachHang VARCHAR(10), @tenKhachHang NVARCHAR(100), @diaChi NVARCHAR(100), @soDienThoai VARCHAR(10), @noDauKi FLOAT, @noHienTai FLOAT)
+	CREATE PROC USP_InsertKhachHang (@maKhachHang VARCHAR(10), @tenKhachHang NVARCHAR(100), @diaChi NVARCHAR(100), @soDienThoai VARCHAR(10), @noDauKi FLOAT, @noHienTai FLOAT)
 	AS
     BEGIN
 		INSERT dbo.KHACHHANG (maKhachHang, tenKhachHang, diaChi, soDienThoai, noDauKi, noHienTai) 

@@ -6,6 +6,8 @@
 package GUI;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import DAL.KhachHang;
 
 /**
  *
@@ -40,12 +42,12 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtxtNoCK = new javax.swing.JTextField();
         jtxtGuestName = new javax.swing.JTextField();
         jtxtGuestAddress = new javax.swing.JTextField();
         jtxtGuestPhone = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jtxtNoDK = new javax.swing.JTextField();
+        jButtonSave = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jtxtGuestId = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -132,16 +134,16 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
         jLabel7.setText("Nợ đầu kì");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 90, -1));
 
-        jTextField1.setBackground(new java.awt.Color(252, 228, 236));
-        jTextField1.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jTextField1.setText("10000000");
-        jTextField1.setBorder(null);
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtxtNoCK.setBackground(new java.awt.Color(252, 228, 236));
+        jtxtNoCK.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jtxtNoCK.setText("10000000");
+        jtxtNoCK.setBorder(null);
+        jtxtNoCK.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
+                jtxtNoCKMouseClicked(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 200, 30));
+        jPanel3.add(jtxtNoCK, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 200, 30));
 
         jtxtGuestName.setBackground(new java.awt.Color(252, 228, 236));
         jtxtGuestName.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
@@ -176,31 +178,31 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
         });
         jPanel3.add(jtxtGuestPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 240, 30));
 
-        jTextField5.setBackground(new java.awt.Color(252, 228, 236));
-        jTextField5.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jTextField5.setText("10000000");
-        jTextField5.setBorder(null);
-        jTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtxtNoDK.setBackground(new java.awt.Color(252, 228, 236));
+        jtxtNoDK.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
+        jtxtNoDK.setText("10000000");
+        jtxtNoDK.setBorder(null);
+        jtxtNoDK.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField5MouseClicked(evt);
+                jtxtNoDKMouseClicked(evt);
             }
         });
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        jtxtNoDK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                jtxtNoDKActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 200, 30));
+        jPanel3.add(jtxtNoDK, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 200, 30));
 
-        jButton1.setBackground(new java.awt.Color(255, 64, 129));
-        jButton1.setFont(new java.awt.Font("Nunito ExtraBold", 0, 12)); // NOI18N
-        jButton1.setText("LƯU");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSave.setBackground(new java.awt.Color(255, 64, 129));
+        jButtonSave.setFont(new java.awt.Font("Nunito ExtraBold", 0, 12)); // NOI18N
+        jButtonSave.setText("LƯU");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSaveActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 80, 40));
+        jPanel3.add(jButtonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 80, 40));
 
         jLabel8.setFont(new java.awt.Font("Nunito", 1, 12)); // NOI18N
         jLabel8.setText("Mã khách hàng");
@@ -256,9 +258,9 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
+        checkField();
+    }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         xx = evt.getX();
@@ -275,9 +277,9 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtGuestIdActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jtxtNoDKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNoDKActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jtxtNoDKActionPerformed
 
     private void btnCloseGuestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseGuestMouseEntered
         btnCloseGuest.setBackground(new Color(244, 67, 54));
@@ -316,14 +318,26 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
         jtxtGuestPhone.setText(null);
     }//GEN-LAST:event_jtxtGuestPhoneMouseClicked
 
-    private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
-        jTextField5.setText(null);
-    }//GEN-LAST:event_jTextField5MouseClicked
+    private void jtxtNoDKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtNoDKMouseClicked
+        jtxtNoDK.setText(null);
+    }//GEN-LAST:event_jtxtNoDKMouseClicked
 
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
-        jTextField1.setText(null);
-    }//GEN-LAST:event_jTextField1MouseClicked
+    private void jtxtNoCKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtNoCKMouseClicked
+        jtxtNoCK.setText(null);
+    }//GEN-LAST:event_jtxtNoCKMouseClicked
 
+    public void checkField(){
+        float noDK = Float.parseFloat(jtxtNoDK.getText());
+        float noCK = Float.parseFloat(jtxtNoDK.getText());
+        if(jtxtGuestId.getText().length() == 0 || jtxtGuestName.getText().length() == 0 || jtxtGuestPhone.getText().length() == 0 || jtxtNoDK.getText().length() == 0 || jtxtNoCK.getText().length() == 0){
+            JOptionPane.showMessageDialog(null, "Chỉ cho phép bỏ qua trường địa chỉ", "Thông báo lỗi", 1);
+        }
+        else{
+            KhachHang.InsertKhachHang(jtxtGuestId.getText(), jtxtGuestName.getText(), jtxtGuestPhone.getText(), jtxtGuestAddress.getText(), noDK, noCK);
+            dispose();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -363,7 +377,7 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnCloseGuest;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -383,11 +397,11 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jtxtGuestAddress;
     private javax.swing.JTextField jtxtGuestId;
     private javax.swing.JTextField jtxtGuestName;
     private javax.swing.JTextField jtxtGuestPhone;
+    private javax.swing.JTextField jtxtNoCK;
+    private javax.swing.JTextField jtxtNoDK;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package qlnv_gui;
+package DAL;
 
 /**
  *
@@ -16,7 +16,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
  
 public class ConnectionDatabase {
     //private static String DB_URL = "jdbc:sqlserver://localhost:1433;\"\n" + " + \"databaseName=DatabaseVLXD;" + "user=sa;" + "password=123456;";
@@ -25,39 +24,29 @@ public class ConnectionDatabase {
             + "integratedSecurity=true";
     private static String USER_NAME = "sa";
     private static String PASSWORD = "123456";
+    private static Connection conn = null;
     
-    
-    public static Connection getConnection(String dbURL, String userName, String password) {
-        Connection conn = null;
+    public static Connection getConnection() {
         try {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                conn = DriverManager.getConnection(dbURL, userName, password);
+                conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
                 System.out.println("connect successfully!");
-                JOptionPane.showMessageDialog(null, "Connect successfully!");
             } catch (SQLException ex) {
                 System.out.println("connect failure!");
-                JOptionPane.showMessageDialog(null, "Connect failure!");
                 Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
         } catch (ClassNotFoundException e) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, e);
         }
-        
         return conn;
     }
     
-//    public static Connection getConnection(){
+//    public static void getClose(){
 //        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            try {
-//                return DriverManager.getConnection(DB_URL);
-//            } catch (SQLException e) {
-//                Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, e);
-//            }
-//        } catch (ClassNotFoundException ex) {
+//            conn.close();
+//        } catch (SQLException ex) {
 //            Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-//        return null;
 //    }
 }
