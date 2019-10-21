@@ -14,13 +14,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import DAL.ConnectionDatabase;
+import DLL.ChiTietHoaDonDLL;
+import DLL.HoaDonDLL;
+import DLL.KhachHangDLL;
+import DLL.SanPhamDLL;
+import Entity.Bill;
+import Entity.Guest;
+import Entity.Product;
+import Entity.SubBill;
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author thaotruogg
  */
 public final class MainJForm extends javax.swing.JFrame {
-    Connection conn = ConnectionDatabase.getConnection();
+    //Connection conn = ConnectionDatabase.getConnection();
     String queryBill = "EXEC dbo.Show_SoHoaDon";
     String querySubBill = "EXEC dbo.Show_CTHD";
     String queryGuest = "EXEC dbo.SHOW_KhachHang";
@@ -30,14 +41,17 @@ public final class MainJForm extends javax.swing.JFrame {
     public MainJForm() {
         initComponents();
         this.setLocationRelativeTo(null);
-        UpdateClass.LoadList(queryBill, jtbBill);
-        UpdateClass.LoadList(querySubBill, jtbSubBill);
-        showKhachHang();
+        BidingHoaDon();
+        BidingKhachHang();
+        BidingChiTietHoaDon();
+//        UpdateClass.LoadList(queryBill, jtbBill);
+//        UpdateClass.LoadList(querySubBill, jtbSubBill);
+//        showKhachHang();
     }
     
-    public void showKhachHang(){
-        UpdateClass.LoadList(queryGuest, jtbGuest);
-    }
+//    public void showKhachHang(){
+//        UpdateClass.LoadList(queryGuest, jtbGuest);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1158,11 +1172,6 @@ public final class MainJForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void btnCloseWindowsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseWindowsMouseClicked
-        try {
-            conn.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(MainJForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
         System.exit(0);
     }//GEN-LAST:event_btnCloseWindowsMouseClicked
 
@@ -1400,40 +1409,40 @@ public final class MainJForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBillEdit4ActionPerformed
 
     private void jtbBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbBillMouseClicked
-        try {
-            int row = this.jtbBill.getSelectedRow();
-            String idRow = (this.jtbBill.getModel().getValueAt(row, 0)).toString();
-            String query = "EXEC dbo.Show_SoHoaDon2 @maHD = '"+idRow+"'";
-            ResultSet resultSet = UpdateClass.ShowText(query);
-            if(resultSet.next()){
-                maHDTemp = resultSet.getString("soHoaDon");
-                jLabelMaHD.setText(resultSet.getString("soHoaDon"));
-                jLabelMaKH.setText(resultSet.getString("maKhachHang"));
-                jLabelTenKH.setText(resultSet.getString("tenKhachHang"));
-                jLabelNgayHD.setText(resultSet.getString("ngayHoaDon"));
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+//        try {
+//            int row = this.jtbBill.getSelectedRow();
+//            String idRow = (this.jtbBill.getModel().getValueAt(row, 0)).toString();
+//            String query = "EXEC dbo.Show_SoHoaDon2 @maHD = '"+idRow+"'";
+//            ResultSet resultSet = UpdateClass.ShowText(query);
+//            if(resultSet.next()){
+//                maHDTemp = resultSet.getString("soHoaDon");
+//                jLabelMaHD.setText(resultSet.getString("soHoaDon"));
+//                jLabelMaKH.setText(resultSet.getString("maKhachHang"));
+//                jLabelTenKH.setText(resultSet.getString("tenKhachHang"));
+//                jLabelNgayHD.setText(resultSet.getString("ngayHoaDon"));
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        }
     }//GEN-LAST:event_jtbBillMouseClicked
 
     private void jtbGuestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbGuestMouseClicked
-        try {
-            int row = this.jtbGuest.getSelectedRow();
-            String idRow = (this.jtbGuest.getModel().getValueAt(row, 0)).toString();
-            String query = "SELECT * FROM dbo.KHACHHANG WHERE maKhachHang = '"+idRow+"'";
-            ResultSet resultSet = UpdateClass.ShowText(query);
-            if(resultSet.next()){
-                maHDTemp = resultSet.getString("maKhachHang");
-                jlbMaKH.setText(resultSet.getString("maKhachHang"));
-                jlbTenKH.setText(resultSet.getString("tenKhachHang"));
-                jlbDiaChi.setText(resultSet.getString("diaChi"));
-                jlbNoDauKi.setText(resultSet.getString("noDauKi"));
-                jlbNoCuoiKi.setText(resultSet.getString("noHienTai"));
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+//        try {
+//            int row = this.jtbGuest.getSelectedRow();
+//            String idRow = (this.jtbGuest.getModel().getValueAt(row, 0)).toString();
+//            String query = "SELECT * FROM dbo.KHACHHANG WHERE maKhachHang = '"+idRow+"'";
+//            ResultSet resultSet = UpdateClass.ShowText(query);
+//            if(resultSet.next()){
+//                maHDTemp = resultSet.getString("maKhachHang");
+//                jlbMaKH.setText(resultSet.getString("maKhachHang"));
+//                jlbTenKH.setText(resultSet.getString("tenKhachHang"));
+//                jlbDiaChi.setText(resultSet.getString("diaChi"));
+//                jlbNoDauKi.setText(resultSet.getString("noDauKi"));
+//                jlbNoCuoiKi.setText(resultSet.getString("noHienTai"));
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        }
     }//GEN-LAST:event_jtbGuestMouseClicked
 
     void setColor(JPanel jpanel){
@@ -1484,9 +1493,83 @@ public final class MainJForm extends javax.swing.JFrame {
             new MainJForm().setVisible(true);
         });
     }
+    
+    public void BidingHoaDon(){
+        listBill = hdDLL.getAllBill();
+        Vector columns = new Vector();
+        columns.add("Mã hóa đơn");
+        columns.add("Mã khách hàng");
+        columns.add("Ngày hóa đơn");
+        
+        Vector data = new Vector();
+        for (Bill bill : listBill) {
+            Vector row = new Vector();
+            row.add(bill.getSoHD());
+            row.add(bill.getMaKH());
+            row.add(bill.getNgayHD());
+            data.add(row);
+        }
+        DefaultTableModel model = new DefaultTableModel(data, columns);
+        jtbBill.setModel(model);
+    }
+    
+    public void BidingKhachHang(){
+        listGuest = khDLL.getAllKhachHang();
+        Vector columns = new Vector();
+        columns.add("Ma Khach Hang");
+        columns.add("Ten khach hang");
+        columns.add("So dien thoai");
+        
+        Vector data = new Vector();
+        for (Guest guest : listGuest) {
+            Vector row = new Vector();
+            row.add(guest.getMaKH());
+            row.add(guest.getTenKH());
+            row.add(guest.getSdt());
+            data.add(row);
+        }
+        DefaultTableModel model = new DefaultTableModel(data, columns);
+        jtbGuest.setModel(model);
+    }
 
+    public void BidingChiTietHoaDon(){
+        listSubBill = cthdDLL.getAllSubBill();
+        Vector columns = new Vector();
+        columns.add("Ma Hoa Don");
+        columns.add("Ma san pham");
+        columns.add("So luong");
+        columns.add("Don gia");
+        
+        Vector data = new Vector();
+        for (SubBill subBill : listSubBill) {
+            Vector rows = new Vector();
+            rows.add(subBill.getMaHD());
+            rows.add(subBill.getMaSP());
+//            listProduct = spDLL.getById(subBill.getMaSP());
+//            rows.add(listProduct.get(0).getTenSP());
+            rows.add(subBill.getSoLuong());
+            rows.add(subBill.getDonGia());
+            data.add(rows);
+        }
+        DefaultTableModel model = new DefaultTableModel(data, columns);
+        jtbSubBill.setModel(model);
+    }
+    
     int xx, xy;
     String maHDTemp;
+    
+    KhachHangDLL khDLL = new KhachHangDLL();
+    ArrayList<Guest> listGuest = new ArrayList<>();
+    
+    HoaDonDLL hdDLL = new HoaDonDLL();
+    ArrayList<Bill> listBill = new ArrayList<>();
+    
+    ChiTietHoaDonDLL cthdDLL = new ChiTietHoaDonDLL();
+    ArrayList<SubBill> listSubBill = new ArrayList<>();
+    
+    SanPhamDLL spDLL = new SanPhamDLL();
+    ArrayList<Product> listProduct = new ArrayList<>();
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnBillSub1;

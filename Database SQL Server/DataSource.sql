@@ -108,7 +108,7 @@ CREATE TABLE ACCOUNT
 
 ----------------------------------------------------------- Delete Table ------------------------------------------------------------------
 
---DROP TABLE dbo.THANHTOAN
+DROP TABLE dbo.ACCOUNT
 --GO 
 --DROP TABLE dbo.CHITIETHOADON
 --GO 
@@ -252,7 +252,7 @@ BEGIN
 END
 GO
 EXEC dbo.Show_SoHoaDon2 @maHD = '' -- varchar(10)
-
+SELECT maSanPham, tenSanPham FROM dbo.SANPHAM WHERE maSanPham='SP001'
 GO
 --Show table Mã Chi Tiết Hóa Đơn
 CREATE PROC Show_CTHD

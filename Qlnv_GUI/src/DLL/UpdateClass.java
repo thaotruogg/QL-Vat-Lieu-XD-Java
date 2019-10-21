@@ -18,27 +18,27 @@ import DAL.ConnectionDatabase;
  * @author thaotruogg
  */
 public class UpdateClass {
-    public static PreparedStatement preparedStatement = null;
-    public static ResultSet resultSet = null;
-    public static Connection connection = ConnectionDatabase.getConnection();
-    
-    public static void LoadList(String query, JTable table){
-        try{
-            preparedStatement = connection.prepareStatement(query);
-            resultSet = preparedStatement.executeQuery();
-            table.setModel((DbUtils.resultSetToTableModel(resultSet)));
-        }
-        catch(SQLException ex){
-            System.out.println(ex);
-        }
-    }
-    
-    public static ResultSet ShowText(String query){
-        try {
-            preparedStatement = connection.prepareStatement(query);
-            return preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            return null;
-        }
-    }
+//    public static PreparedStatement preparedStatement = null;
+//    public static ResultSet resultSet = null;
+//    public static Connection connection = ConnectionDatabase.getConnection();
+//    
+//    public static void LoadList(String query, JTable table){
+//        try{
+//            preparedStatement = connection.prepareStatement(query);
+//            resultSet = preparedStatement.executeQuery();
+//            table.setModel((DbUtils.resultSetToTableModel(resultSet)));
+//        }
+//        catch(SQLException ex){
+//            System.out.println(ex);
+//        }
+//    }
+//    
+//    public static ResultSet ShowText(String query){
+//        try {
+//            preparedStatement = connection.prepareStatement(query);
+//            return preparedStatement.executeQuery();
+//        } catch (SQLException e) {
+//            return null;
+//        }
+//    }
 }

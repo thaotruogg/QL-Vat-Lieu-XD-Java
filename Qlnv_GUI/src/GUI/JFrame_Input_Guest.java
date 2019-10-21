@@ -327,15 +327,15 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtNoCKMouseClicked
 
     public void checkField(){
-        float noDK = Float.parseFloat(jtxtNoDK.getText());
-        float noCK = Float.parseFloat(jtxtNoDK.getText());
-        if(jtxtGuestId.getText().length() == 0 || jtxtGuestName.getText().length() == 0 || jtxtGuestPhone.getText().length() == 0 || jtxtNoDK.getText().length() == 0 || jtxtNoCK.getText().length() == 0){
-            JOptionPane.showMessageDialog(null, "Chỉ cho phép bỏ qua trường địa chỉ", "Thông báo lỗi", 1);
-        }
-        else{
-            KhachHang.InsertKhachHang(jtxtGuestId.getText(), jtxtGuestName.getText(), jtxtGuestPhone.getText(), jtxtGuestAddress.getText(), noDK, noCK);
-            dispose();
-        }
+//        float noDK = Float.parseFloat(jtxtNoDK.getText());
+//        float noCK = Float.parseFloat(jtxtNoDK.getText());
+//        if(jtxtGuestId.getText().length() == 0 || jtxtGuestName.getText().length() == 0 || jtxtGuestPhone.getText().length() == 0 || jtxtNoDK.getText().length() == 0 || jtxtNoCK.getText().length() == 0){
+//            JOptionPane.showMessageDialog(null, "Chỉ cho phép bỏ qua trường địa chỉ", "Thông báo lỗi", 1);
+//        }
+//        else{
+//            KhachHang.InsertKhachHang(jtxtGuestId.getText(), jtxtGuestName.getText(), jtxtGuestPhone.getText(), jtxtGuestAddress.getText(), noDK, noCK);
+//            dispose();
+//        }
     }
     
     /**
