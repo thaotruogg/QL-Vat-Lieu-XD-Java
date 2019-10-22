@@ -223,12 +223,12 @@ public final class JFrame_Sub_Bill extends javax.swing.JFrame {
         subbill.setSoLuong(soLuong);
         subbill.setDonGia(donGia);
         if(ctDLL.AddSubBill(subbill)){
-            JOptionPane.showMessageDialog(this, "Them thanh cong");
+            JOptionPane.showMessageDialog(this, "Thêm thành công!");
             this.setVisible(false);
             dispose();
         }
         else{
-            JOptionPane.showMessageDialog(this, "Them that bai");
+            JOptionPane.showMessageDialog(this, "Thêm thất bại!");
         }
     }//GEN-LAST:event_jbtnSaveSubBillActionPerformed
 

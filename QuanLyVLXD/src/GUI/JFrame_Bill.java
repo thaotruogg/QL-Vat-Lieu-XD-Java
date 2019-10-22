@@ -215,12 +215,12 @@ public final class JFrame_Bill extends javax.swing.JFrame {
             bill.setMaKH(idKH);
             bill.setNgayHD(ngayHD);
             if(hdDLL.AddBill(bill)){
-                JOptionPane.showMessageDialog(this, "Them hoa don thanh cong!");
+                JOptionPane.showMessageDialog(this, "Thêm hóa đơn thành công!");
                 this.setVisible(false);
                 dispose();
             }
             else{
-                JOptionPane.showMessageDialog(this, "Them hoa don that bai!");
+                JOptionPane.showMessageDialog(this, "Thêm hóa đơn thất bại!");
             }
         }
     }//GEN-LAST:event_jbtnLuuHDActionPerformed

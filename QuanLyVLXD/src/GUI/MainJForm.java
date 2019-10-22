@@ -1327,11 +1327,11 @@ public final class MainJForm extends javax.swing.JFrame {
             int row =jtbGuest.getSelectedRow();
             listGuest = khDLL.getAllKhachHang();
             if(khDLL.DeleteGuest(listGuest.get(row).getMaKH())){
-                JOptionPane.showMessageDialog(this, "Xoa thanh cong!");
+                JOptionPane.showMessageDialog(this, "Xóa thành công!");
                 BidingKhachHang();
             }
             else{
-                JOptionPane.showMessageDialog(this, "Xoa that bai!");
+                JOptionPane.showMessageDialog(this, "Xóa thất bại!");
             }
         }
     }//GEN-LAST:event_jButtonGuestDeleteActionPerformed
@@ -1441,7 +1441,7 @@ public final class MainJForm extends javax.swing.JFrame {
         listBill = hdDLL.getAllBill();
         Vector columns = new Vector();
         columns.add("Mã hóa đơn");
-        columns.add("Mã khách hàng");
+        columns.add("Tên khách hàng");
         columns.add("Ngày hóa đơn");
         
         Vector data = new Vector();

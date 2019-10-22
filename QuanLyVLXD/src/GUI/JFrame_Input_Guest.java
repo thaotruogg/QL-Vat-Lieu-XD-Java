@@ -288,19 +288,19 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
             double noDK = Double.parseDouble(jtxtNoDK.getText());
             double noCK = Double.parseDouble(jtxtNoCK.getText());
             if(jtxtGuestPhone.getText().length() > 10){
-                JOptionPane.showMessageDialog(this, "So dien thoai chi co 10 ki tu!");
+                JOptionPane.showMessageDialog(this, "Số điện thoại có 10 kí tự!");
             }
             else if(jtxtGuestId.getText().trim().equals("Nhập mã khách hàng") || jtxtGuestId.getText().length() == 0){
-                JOptionPane.showMessageDialog(this, "Vui long nhap lai ma khach hang");
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập lại mã khách hàng");
                 }
             else if(jtxtGuestName.getText().trim().equals("Nhập tên khách hàng") || jtxtGuestName.getText().length() == 0){
-                JOptionPane.showMessageDialog(this, "Vui long nhap ten khach hang");
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập lại tên khách hàng");
             }
             else if(jtxtGuestAddress.getText().trim().equals("Nhập địa chỉ") || jtxtGuestAddress.getText().length() == 0){
-                JOptionPane.showMessageDialog(this, "Vui long nhap dia chi");
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập địa chỉ");
             }
             else if(jtxtNoDK.getText().length() == 0 || jtxtNoCK.getText().length() == 0){
-                JOptionPane.showMessageDialog(this, "Vui long nhap tien no");
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập tiền nợ");
             }
             else{
                 Guest guest = new Guest();
