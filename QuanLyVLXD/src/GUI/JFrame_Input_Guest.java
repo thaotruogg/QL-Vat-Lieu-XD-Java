@@ -303,38 +303,20 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui long nhap tien no");
             }
             else{
-                Guest guest = new Guest(maKH, tenKH, diachi, sdt, noDK, noCK);
-                if(GuestFormMain == null){
-                    guest.setMaKH(maKH);
-                    guest.setTenKH(tenKH);
-                    guest.setDiaChi(diachi);
-                    guest.setSdt(sdt);
-                    guest.setNoDK(noDK);
-                    guest.setNoCK(noCK);
-                    if(khDLL.AddGuest(guest)){
-                        JOptionPane.showMessageDialog(this, "Thêm khách hàng thành công!", "Thông báo", 1);
-                        this.setVisible(false);
-                        dispose();
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(this, "Thêm khách hàng thất bại!", "Thông báo", 1);
-                    }
+                Guest guest = new Guest();
+                guest.setMaKH(maKH);
+                guest.setTenKH(tenKH);
+                guest.setDiaChi(diachi);
+                guest.setSdt(sdt);
+                guest.setNoDK(noDK);
+                guest.setNoCK(noCK);
+                if(khDLL.AddGuest(guest)){
+                    JOptionPane.showMessageDialog(this, "Thêm khách hàng thành công!", "Thông báo", 1);
+                    this.setVisible(false);
+                    dispose();
                 }
                 else{
-                    guest.setMaKH(maKH);
-                    guest.setTenKH(tenKH);
-                    guest.setDiaChi(diachi);
-                    guest.setSdt(sdt);
-                    guest.setNoDK(noDK);
-                    guest.setNoCK(noCK);
-                    if(khDLL.UpdateGuest(guest)){
-                        JOptionPane.showMessageDialog(this, "Sửa khách hàng thành công!", "Thông báo", 1);
-                        this.setVisible(false);
-                        dispose();
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(this, "Sửa khách hàng thất bại!", "Thông báo", 1);
-                    }
+                    JOptionPane.showMessageDialog(this, "Thêm khách hàng thất bại!", "Thông báo", 1);
                 }
             }
         } catch (Exception e) {
@@ -383,7 +365,7 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseGuestMouseClicked
 
     private void jtxtGuestIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtGuestIdMouseClicked
-        jtxtGuestId.setText(null);
+        jtxtGuestId.setText("KH");
     }//GEN-LAST:event_jtxtGuestIdMouseClicked
 
     private void jtxtGuestNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtGuestNameMouseClicked
@@ -395,7 +377,7 @@ public class JFrame_Input_Guest extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtGuestAddressMouseClicked
 
     private void jtxtGuestPhoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtGuestPhoneMouseClicked
-        jtxtGuestPhone.setText(null);
+        jtxtGuestPhone.setText("0");
     }//GEN-LAST:event_jtxtGuestPhoneMouseClicked
 
     private void jtxtNoDKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtNoDKMouseClicked

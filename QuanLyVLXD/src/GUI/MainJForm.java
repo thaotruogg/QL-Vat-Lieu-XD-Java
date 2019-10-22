@@ -149,10 +149,8 @@ public final class MainJForm extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jtbGuest = new javax.swing.JTable();
         jButtonGuestDelete = new javax.swing.JButton();
-        jButtonBillEdit2 = new javax.swing.JButton();
         jButtonBillAdd2 = new javax.swing.JButton();
         jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -865,18 +863,7 @@ public final class MainJForm extends javax.swing.JFrame {
                 jButtonGuestDeleteActionPerformed(evt);
             }
         });
-        jpGuest.add(jButtonGuestDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 80, -1));
-
-        jButtonBillEdit2.setBackground(new java.awt.Color(255, 64, 129));
-        jButtonBillEdit2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/edit_property_24px.png"))); // NOI18N
-        jButtonBillEdit2.setBorderPainted(false);
-        jButtonBillEdit2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonBillEdit2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBillEdit2ActionPerformed(evt);
-            }
-        });
-        jpGuest.add(jButtonBillEdit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 80, -1));
+        jpGuest.add(jButtonGuestDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 80, -1));
 
         jButtonBillAdd2.setBackground(new java.awt.Color(255, 64, 129));
         jButtonBillAdd2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/add_24px.png"))); // NOI18N
@@ -894,15 +881,10 @@ public final class MainJForm extends javax.swing.JFrame {
         jLabel57.setText("Thêm");
         jpGuest.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, -1));
 
-        jLabel58.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
-        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel58.setText("Sửa");
-        jpGuest.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 80, -1));
-
         jLabel59.setFont(new java.awt.Font("Nunito", 0, 12)); // NOI18N
         jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel59.setText("Xóa");
-        jpGuest.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 80, -1));
+        jpGuest.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 80, -1));
 
         jLabel22.setFont(new java.awt.Font("Nunito ExtraBold", 0, 14)); // NOI18N
         jLabel22.setText("Thông tin chi tiết");
@@ -1354,10 +1336,6 @@ public final class MainJForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonGuestDeleteActionPerformed
 
-    private void jButtonBillEdit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBillEdit2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBillEdit2ActionPerformed
-
     private void jButtonBillAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBillAdd2ActionPerformed
         JFrame_Input_Guest f = new JFrame_Input_Guest();
         f.setVisible(true);
@@ -1559,7 +1537,6 @@ public final class MainJForm extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBillDelete1;
     private javax.swing.JButton jButtonBillDelete3;
     private javax.swing.JButton jButtonBillEdit1;
-    private javax.swing.JButton jButtonBillEdit2;
     private javax.swing.JButton jButtonBillEdit3;
     private javax.swing.JButton jButtonGuestDelete;
     private javax.swing.JButton jButtonSubBillAdd;
@@ -1602,7 +1579,6 @@ public final class MainJForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;

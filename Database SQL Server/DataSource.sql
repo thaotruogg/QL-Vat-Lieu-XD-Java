@@ -243,7 +243,7 @@ BEGIN
 	FROM dbo.HOADON
 END
 GO
-CREATE PROC Show_SoHoaDon2 (@maHD VARCHAR(10))
+CREATE PROC Show_SoHoaDon (@maHD VARCHAR(10)
 AS
 BEGIN
     SELECT hd.soHoaDon, hd.maKhachHang, kh.tenKhachHang, hd.ngayHoaDon 
@@ -290,7 +290,7 @@ GO
 	GO
 
     -- Sửa Khách hàng
-	ALTER PROC USP_UpdateKhachHang (@maKhachHang VARCHAR(10), @tenKhachHang NVARCHAR(100), @diaChi NVARCHAR(100), @soDienThoai VARCHAR(10), @noDauKi FLOAT, @noHienTai FLOAT)
+	CREATE PROC USP_UpdateKhachHang (@maKhachHang VARCHAR(10), @tenKhachHang NVARCHAR(100), @diaChi NVARCHAR(100), @soDienThoai VARCHAR(10), @noDauKi FLOAT, @noHienTai FLOAT)
 	AS
     BEGIN
 		UPDATE dbo.KHACHHANG SET tenKhachHang = @tenKhachHang, diaChi = @diaChi, soDienThoai = @soDienThoai, noDauKi = @noDauKi, noHienTai = @noHienTai WHERE maKhachHang = @maKhachHang
@@ -503,3 +503,5 @@ GO
 	DELETE dbo.SANPHAM WHERE maLoaiSanPham = 'VL15'
 	SELECT * FROM dbo.LOAISANPHAM WHERE maLoaiSanPham = ''
 				-------------------------------------------------------------------------------------------------------------------------------------------
+SELECT *
+FROM 
