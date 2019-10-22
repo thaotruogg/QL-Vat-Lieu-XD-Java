@@ -54,7 +54,7 @@ CREATE TABLE SANPHAM
 	nhaSanXuat NVARCHAR(100) NULL DEFAULT N'Nhà sản xuất không xác định',
 	maLoaiSanPham VARCHAR(10) NOT NULL,
 	PRIMARY KEY(maSanPham),
-	FOREIGN KEY(maLoaiSanPham) REFERENCES dbo.LOAISANPHAM(maLoaiSanPham) ON UPDATE CASCADE
+	FOREIGN KEY(maLoaiSanPham) REFERENCES dbo.LOAISANPHAM(maLoaiSanPham) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
 GO	
@@ -66,7 +66,7 @@ CREATE TABLE THANHTOAN
 	soTien FLOAT CHECK(soTien >= 0) NOT NULL,
 	maKhachHang VARCHAR(10) NOT NULL,
 	PRIMARY KEY(soPhieu),
-	FOREIGN KEY(maKhachHang) REFERENCES dbo.KHACHHANG(maKhachHang) ON UPDATE CASCADE
+	FOREIGN KEY(maKhachHang) REFERENCES dbo.KHACHHANG(maKhachHang) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
 GO
@@ -77,7 +77,7 @@ CREATE TABLE HOADON
 	maKhachHang VARCHAR(10) NOT NULL,
 	ngayHoaDon DATETIME CHECK(ngayHoaDon <= GETDATE()) NOT NULL,
 	PRIMARY KEY(soHoaDon),
-	FOREIGN KEY(maKhachHang) REFERENCES dbo.KHACHHANG(maKhachHang) ON UPDATE CASCADE
+	FOREIGN KEY(maKhachHang) REFERENCES dbo.KHACHHANG(maKhachHang) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
 GO
@@ -89,8 +89,8 @@ CREATE TABLE CHITIETHOADON
 	soLuong INT CHECK(soLuong >= 0) NOT NULL,
 	donGia FLOAT CHECK(donGia >= 0) NOT NULL,
 	PRIMARY KEY(maHoaDon, maSanPham),
-	FOREIGN KEY(maSanPham) REFERENCES dbo.SANPHAM(maSanPham)ON UPDATE CASCADE,
-	FOREIGN KEY(maHoaDon) REFERENCES dbo.HOADON(soHoaDon) ON UPDATE CASCADE
+	FOREIGN KEY(maSanPham) REFERENCES dbo.SANPHAM(maSanPham)ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(maHoaDon) REFERENCES dbo.HOADON(soHoaDon) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
 CREATE TABLE ACCOUNT
@@ -108,17 +108,17 @@ CREATE TABLE ACCOUNT
 
 ----------------------------------------------------------- Delete Table ------------------------------------------------------------------
 
-DROP TABLE dbo.ACCOUNT
+DROP TABLE dbo.THANHTOAN
 --GO 
---DROP TABLE dbo.CHITIETHOADON
---GO 
---DROP TABLE dbo.HOADON
---GO 
---DROP TABLE dbo.KHACHHANG
---GO 
---DROP TABLE dbo.SANPHAM
---GO 
---DROP TABLE dbo.LOAISANPHAM
+DROP TABLE dbo.CHITIETHOADON
+GO 
+DROP TABLE dbo.HOADON
+GO 
+DROP TABLE dbo.KHACHHANG
+GO 
+DROP TABLE dbo.SANPHAM
+GO 
+DROP TABLE dbo.LOAISANPHAM
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -207,7 +207,7 @@ go
 ALTER PROC SHOW_KhachHang
 AS
 BEGIN
-	SELECT maKhachHang AS [Mã khách hàng], tenKhachHang AS [Tên khách hàng], soDienThoai AS [Số điện thoại]
+	SELECT maKhachHang AS [Mã khách hàng], tenKhachHang AS [Tên khách hàng], soDienThoai AS [Số điện thoại], diaChi, noDauKi, noHienTai
 	FROM dbo.KHACHHANG
 END
 GO
@@ -282,8 +282,7 @@ GO
 	CREATE PROC USP_InsertKhachHang (@maKhachHang VARCHAR(10), @tenKhachHang NVARCHAR(100), @diaChi NVARCHAR(100), @soDienThoai VARCHAR(10), @noDauKi FLOAT, @noHienTai FLOAT)
 	AS
     BEGIN
-		INSERT dbo.KHACHHANG (maKhachHang, tenKhachHang, diaChi, soDienThoai, noDauKi, noHienTai) 
-		VALUES (@maKhachHang, @tenKhachHang, @diaChi, @soDienThoai, @noDauKi, @noHienTai)
+		INSERT dbo.KHACHHANG (maKhachHang, tenKhachHang, diaChi, soDienThoai, noDauKi, noHienTai) VALUES (@maKhachHang, @tenKhachHang, @diaChi, @soDienThoai, @noDauKi, @noHienTai)
 	END
 	GO
 	-->
@@ -390,12 +389,7 @@ GO
 	CREATE PROC USP_InsertHoaDon (@soHoaDon VARCHAR(10), @maKhachHang VARCHAR(10), @ngayHoaDon DATETIME)
 	AS
     BEGIN
-        INSERT dbo.HOADON (soHoaDon, maKhachHang, ngayHoaDon)
-        VALUES
-        (   @soHoaDon,       -- soHoaDon - varchar(10)
-            @maKhachHang,       -- maKhachHang - varchar(10)
-            @ngayHoaDon -- ngayHoaDon - datetime
-            )
+        INSERT dbo.HOADON (soHoaDon, maKhachHang, ngayHoaDon) VALUES (@soHoaDon, @maKhachHang, @ngayHoaDon)
     END
 	GO
     
@@ -442,6 +436,8 @@ GO
         DELETE dbo.HOADON WHERE soHoaDon = @soHoaDon
     END
 	GO
+	EXEC dbo.USP_DeleteHoaDon @soHoaDon = '' -- varchar(10)
+	go
     
 	CREATE PROC USP_DeleteChiTietHonDon (@maHoaDon VARCHAR(10))
 	AS
@@ -493,6 +489,15 @@ GO
 
 	EXEC dbo.USP_DeleteThanhToan @soPhieu = '' -- varchar(10)
 	GO
+
+	CREATE PROC GetIDKH (@id VARCHAR(10))
+	AS
+	BEGIN
+		SELECT * FROM dbo.KHACHHANG WHERE maKhachHang=@id
+	END
+	GO
+	EXEC dbo.GetIDKH @id = 'KH001' -- varchar(10)
+	
     
     SELECT maKhachHang AS [Mã khách hàng], tenKhachHang AS [Tên khách hàng] FROM dbo.KHACHHANG
 	DELETE dbo.SANPHAM WHERE maLoaiSanPham = 'VL15'
